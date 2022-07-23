@@ -86,3 +86,13 @@ class Graphs:
     def has_path_undirected_graph(self, edges, nodeA, nodeB):
         graph = self.build_graph(self, edges)
         return self.hasPath(self, graph, nodeA, nodeB)
+#---------------------------------------------------------------#
+    # returns true if a new unvisited component is found
+
+    def explore(self, graph, current, visited):
+        if current in visited:
+            return False
+        visited.add(current)
+        for neighbour in graph[current]:
+            self.explore(self, graph, neighbour, visited)
+        return True
