@@ -64,3 +64,17 @@ class Graphs:
             if self.hasPath(self, graph, neighbour, dst, visited) == True:
                 return True
         return False
+#---------------------------------------------------------------#
+    # builds undirected graph given the edges in parameter
+
+    def build_graph(self, edges):
+        graph = dict()
+        for edge in edges:
+            [a, b] = edge
+            if not (a in graph):
+                graph[a] = []
+            if not (b in graph):
+                graph[b] = []
+            graph[a].append(b)
+            graph[b].append(a)
+        return graph
