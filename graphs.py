@@ -96,3 +96,13 @@ class Graphs:
         for neighbour in graph[current]:
             self.explore(self, graph, neighbour, visited)
         return True
+#---------------------------------------------------------------#
+    # returns number of connected components in graph
+
+    def count_connected_components(self, graph):
+        visited = set()
+        count = 0
+        for node in graph:
+            if self.explore(self, graph, node, visited):
+                count += 1
+        return count
