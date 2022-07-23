@@ -11,3 +11,11 @@ class Graphs:
         print(source)
         for neighbour in graph[source]:
             Graphs.dfs_recursion(self, graph, neighbour)
+
+    def bfs(self, graph, source):
+        queue = [source]
+        while len(queue) != 0:
+            current = queue.pop(0)
+            print(current)
+            for neighbour in graph[current]:
+                queue.append(neighbour)
