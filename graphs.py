@@ -1,16 +1,22 @@
 class Graphs:
-    def dfs_stack(self, graph, source):  # depth first traversal using stack
+    #---------------------------------------------------------------#
+    # depth first traversal using stack
+    def dfs_stack(self, graph, source):
         stack = [source]
         while len(stack) != 0:
             current = stack.pop()
             print(current)
             for neighbour in graph[current]:
                 stack.append(neighbour)
+#---------------------------------------------------------------#
+    # depth first traversal using recursion
 
-    def dfs_recursion(self, graph, source):  # depth first traversal using recursion
+    def dfs_recursion(self, graph, source):
         print(source)
         for neighbour in graph[source]:
             Graphs.dfs_recursion(self, graph, neighbour)
+#---------------------------------------------------------------#
+    # breadth first traversal using recursion
 
     def bfs(self, graph, source):
         queue = [source]
