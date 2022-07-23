@@ -36,3 +36,16 @@ class Graphs:
             if self.has_path_dfs(self, graph, neighbour, dst):
                 return True
         return False
+#---------------------------------------------------------------#
+    # returns true if there exists a path from src to dst
+    # finds path using bfs
+
+    def has_path_bfs(self, graph, src, dst):
+        queue = [src]
+        while len(queue) != 0:
+            current = queue.pop()
+            if current == dst:
+                return True
+            for neighbour in graph[current]:
+                queue.append(neighbour)
+        return False
