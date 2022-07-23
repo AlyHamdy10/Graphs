@@ -78,3 +78,11 @@ class Graphs:
             graph[a].append(b)
             graph[b].append(a)
         return graph
+#---------------------------------------------------------------#
+    # returns true if there exists a path between nodeA and nodeB
+    # the function is given a list of edges present
+    # a graph is built according to the list of edges given
+
+    def has_path_undirected_graph(self, edges, nodeA, nodeB):
+        graph = self.build_graph(self, edges)
+        return self.hasPath(self, graph, nodeA, nodeB)
