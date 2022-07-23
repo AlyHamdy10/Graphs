@@ -19,3 +19,14 @@ class Graphs:
             print(current)
             for neighbour in graph[current]:
                 queue.append(neighbour)
+#---------------------------------------------------------------#
+    # returns true if there exists a path from src to dst
+    # finds path using dfs
+
+    def has_path_dfs(self, graph, src, dst):
+        if src == dst:
+            return True
+        for neighbour in graph[src]:
+            if self.has_path_dfs(self, graph, neighbour, dst):
+                return True
+        return False
