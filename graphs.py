@@ -49,3 +49,18 @@ class Graphs:
             for neighbour in graph[current]:
                 queue.append(neighbour)
         return False
+#---------------------------------------------------------------#
+    # returns true if there exists a path from src to dst
+    # finds path using recursion
+    # handles cyclic graph
+
+    def has_path(self, graph, src, dst, visited=set()):
+        if src in visited:
+            return False
+        visited.add(src)
+        if src == dst:
+            return True
+        for neighbour in graph[src]:
+            if self.hasPath(self, graph, neighbour, dst, visited) == True:
+                return True
+        return False
