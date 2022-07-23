@@ -6,3 +6,8 @@ class Graphs:
             print(current)
             for neighbour in graph[current]:
                 stack.append(neighbour)
+
+    def dfs_recursion(self, graph, source):  # depth first traversal using recursion
+        print(source)
+        for neighbour in graph[source]:
+            Graphs.dfs_recursion(self, graph, neighbour)
