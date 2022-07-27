@@ -158,3 +158,23 @@ class Graphs:
                 if self.explore_grid(self, grid, r, c, visited):
                     count += 1
         return count
+#---------------------------------------------------------------#
+    # returns true if a land is found regardless of its size
+
+    def explore_grid(self, grid, r, c, visited):
+        rowInBounds = 0 <= r < len(grid)
+        colInBounds = 0 <= c < len(grid[0])
+        if not rowInBounds or not colInBounds:
+            return False
+        if grid[r][c] == 'W':  # check if we are in a water block
+            return False
+        if tuple((r, c)) in visited:
+            return False
+        visited.add(tuple((r, c)))
+
+        self.explore_grid(self, grid, r-1, c, visited)  # up
+        self.explore_grid(self, grid, r+1, c, visited)  # down
+        self.explore_grid(self, grid, r, c-1, visited)  # left
+        self.explore_grid(self, grid, r, c+1, visited)  # right
+
+        return True
