@@ -130,3 +130,20 @@ class Graphs:
         for neighbour in graph[node]:
             size += self.explore_size(self, graph, neighbour, visited)
         return size
+#---------------------------------------------------------------#
+    # returns the length of the shortest path between nodeA and nodeB
+
+    def shortest_path(self, edges, nodeA, nodeB):
+        graph = self.build_graph(self, edges)
+        visited = set([nodeA])
+        queue = [[nodeA, 0]]
+        while len(queue) > 0:
+            [node, dist] = queue.pop(0)
+
+            if node == nodeB:
+                return dist
+            for neighbour in graph[node]:
+                if neighbour not in visited:
+                    visited.add(neighbour)
+                    queue.append([neighbour, dist + 1])
+        return -1
