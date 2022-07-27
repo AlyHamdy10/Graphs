@@ -106,3 +106,15 @@ class Graphs:
             if self.explore(self, graph, node, visited):
                 count += 1
         return count
+#---------------------------------------------------------------#
+    # returns the size of the largest component in graph
+    # uses function explore_size
+
+    def largest_component(self, graph):
+        visited = set()
+        largest = 0
+        for node in graph:
+            size = self.explore_size(self, graph, node, visited)
+            if size > largest:
+                largest = size
+        return largest
