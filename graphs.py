@@ -147,3 +147,14 @@ class Graphs:
                     visited.add(neighbour)
                     queue.append([neighbour, dist + 1])
         return -1
+#---------------------------------------------------------------#
+    # returns the number of lands found in the grid
+
+    def island_count(self, grid):
+        visited = set()
+        count = 0
+        for r in range(len(grid)):
+            for c in range(len(grid[0])):
+                if self.explore_grid(self, grid, r, c, visited):
+                    count += 1
+        return count
