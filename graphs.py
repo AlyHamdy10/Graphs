@@ -118,3 +118,15 @@ class Graphs:
             if size > largest:
                 largest = size
         return largest
+#---------------------------------------------------------------#
+    # returns the number of neighbours of the node sent in parameter
+    # integer returned includes the node sent itself
+
+    def explore_size(self, graph, node, visited):
+        if node in visited:
+            return 0
+        visited.add(node)
+        size = 1
+        for neighbour in graph[node]:
+            size += self.explore_size(self, graph, neighbour, visited)
+        return size
